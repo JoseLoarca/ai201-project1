@@ -16,6 +16,7 @@ and LLM round-trips were too slow for a preprocessing step.
 
 import re
 from dataclasses import dataclass, field
+from typing import Optional
 
 import ollama
 from ollama import chat, ChatResponse, ResponseError
@@ -201,7 +202,7 @@ def _parse_comment_tree(lines: list[str], indent_unit: int) -> list[_Comment]:
     roots: list[_Comment] = []
     # Stack entries: (depth_level, _Comment)
     stack: list[tuple[int, _Comment]] = []
-    current: _Comment | None = None
+    current: Optional[_Comment] = None
 
     for line in lines:
         comment_match = re.match(r"^(\s*)\[([^\]]+)\]:\s*(.*)", line)

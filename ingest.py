@@ -139,18 +139,3 @@ def run_ingestion() -> list[dict]:
 
     return all_chunks
 
-
-if __name__ == "__main__":
-    chunks = run_ingestion()
-
-    # Spot-check: print a sample chunk from each source
-    logger.info("--- Sample chunks ---")
-    seen_sources = set()
-    for chunk in chunks:
-        src = chunk["metadata"]["source"]
-        if src not in seen_sources:
-            seen_sources.add(src)
-            logger.info(f"[{src}]")
-            logger.info(f"  metadata: {chunk['metadata']}")
-            logger.info(f"  text: {chunk['text']}")
-            logger.info(f"  length: {len(chunk['text'])}")
