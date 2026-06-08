@@ -214,6 +214,26 @@ ChromaDB
   * professor_name
   * tags
 
+> Milestone 4: Updated this section to reflect the chunking and embedding flow.
+
+```mermaid
+graph TD
+    Start([Chunking and Embedding Flow]) --> CheckExists{ChromaDB collection<br>exists?}
+    
+    %% If collection exists
+    CheckExists -- Yes --> CheckForce{Check<br>FORCE_REBUILD value}
+    CheckForce -- False --> EndNone([End: Do nothing])
+    CheckForce -- True --> Wipe[Wipe current collection]
+    Wipe --> IngestChunk[Run Ingestion and<br>Chunking Process]
+    
+    %% If collection does not exist
+    CheckExists -- No --> IngestChunk
+    
+    %% Common Ending Flow
+    IngestChunk --> Embed[Run Embed and Store Process]
+    Embed --> EndComplete([End: Flow Complete])
+``` 
+    
 ### 4. Retrieval: Gemma 4 via Ollama + ChromaDB
 
 User asks question → **query understanding**.
