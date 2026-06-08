@@ -151,7 +151,7 @@ in different languages, or real users could ask questions in their native langua
 
 ```mermaid
 flowchart TD
-    A[TXT Sources] --> B[Gemma 4 via Ollama\nPreprocessing & Metadata Injection]
+    A[TXT Sources] --> B[Pure Python\nPreprocessing & Metadata Injection]
 
     B --> C1[Reddit\nRecursive · 256t · 26 overlap]
     B --> C2[RMP Reviews\nSemantic · Metadata Injected]
@@ -171,14 +171,19 @@ flowchart TD
     J --> K[Final Answer]
 ```
 
-### 1. Document Ingestion: Gemma 4 via Ollama
+### 1. Document Ingestion: Pure Python
+
+> Updated during Milestone 3: I'm no longer using Gemma 4 for the document ingestion process. 
+> I originally planned to use Gemma 4 via Ollama to structure Reddit posts, but after a few tries I noticed
+> that the structuring could be easily done using pure Python. This saves a few long calls to Ollama.
+
 *Raw Sources*
 * Reddit Posts (.txt)
 * RateMyProfessor Reviews (.txt)
 * UoPeople Course List (.txt)
 * UoPeople Degree Catalog (rich) (.txt)
 
-**Local Preprocessing (Gemma 4 via Ollama)**  
+**Local Preprocessing**  
 
 * Clean text
 * Normalize formatting
