@@ -1,0 +1,45 @@
+SOURCE: https://www.reddit.com/r/UoPeople/comments/19ay3et/cs_classes_you_found_them_difficult
+
+POST TITLE: CS classes you found them difficult
+
+COMMENTS:
+
+[Privat3Ice]: The classes I took that were hardest:
+    CS2204 Communications and Networking (heavy workload, difficult material, impossible final exam)
+    CS4402 Comparative Programing Languages (light workload, easy material, impossible final exam)
+    CS1103 Programming 2 (in Java) (exceptionally heavy work load, challenging material, difficult final)
+    I transferred CS 4407, but it's known to be difficult, to have a super heavy reading load, difficult material, and a difficult final. It's a course that can break your CGPA.
+
+    [User25590]: Are these electives? Other than 1103
+
+        [Privat3Ice]: All 4 are required.
+            Seriously, you can find that information in the university catalog.
+
+[Dry_Patience872]: CS4407 Machine Learning.
+                   MATH 1302 Discrete Mathematics
+                   CS 2204 Networking 1
+                   I still have 13 courses to gp though, but these three are the hardest I face in the 27 courses I took
+
+
+[DepressoHummus]: Comparative Programming Languages. The final was nothing like what I studied
+
+    [deleted_user]: I am planning to take it soon. What should I do to get A or A+? Do you think it is possible?
+
+        [Privat3Ice]: Yes, it's possible. I got an A by the skin of my teeth. I went into the final with a 99+ average and came out with 93.5x overall. I got an 82.5 on the final. It was my lowest grade at UoPeople (save one: the CS2204 final) or any test, exam, or assignment.
+                    TBH, there is not a good way to study for the final, either. We've identified errors in the questions and grading and they have not been fixed despite multiple reports. The final covers certain material at an intermediate or expert level which the course glosses over as one of five languages packed in a single week. The reading materials for that week provide hundreds of pages on the topic, but that reading will not teach you the things the exams ask you. Only coding expertise--and extensive experience--will.
+                    The key to eeking out and A, is to mop up absolutely every point you can in the coursework, because the final WILL bring you down. The highest grade I've ever seen on the final was an 86.
+
+[i-ranyar]: OS2: so basic and so boring for a 3xxx level class Big data: too much theory and too little practical knowledge. The final tests you on knowing the reading rather than the topics if it makes sense
+
+[Responsible_Army4006]: If you wanted to take CS4405 Mobile Applications as part of your electives. I would suggest don't because it is huge. This course give me a headache. In this course you will develop a 8 applications. 4 written in Kotlin and 4 in Swift. I would say the learning materials isn't enough to learn the basics of these two programming languages.
+
+    [Privat3Ice]: The DSG discord has some great suggestions for additional materials. Might be worthwhile to study them in advance of taking this course. The workload is supposed to be heavy, but the course is reportedly excellent.
+
+        [thebaws420]: I strongly disagree. CS 4505 Mobile Applications was one of my favorite classes at UoPeople. You are given the required tools in the introductory units to Android/iOS, however, they do expect you to go through them on your own to learn the programming languages. For example, the units will suggest the Google tutorials for Android and 100days of SwiftUI for iOS. You do need to go through it yourself though.The course itself is difficult, and if you want to succeed you will likely need to put about 30 hours/week to cover everything. You need to spend about 5 hours on the theory and 15 - 25 hours practicing app development. To get the most out of this class, you need to take it on its own an dedicate yourself to it for 9 weeks.This class is the closest representation to real world programming that you'll get at UoPeople and really makes your work for your A.
+
+
+[deleted_user]: I still haven't taken many courses, but college algebra was challenging. The amount of material covered in just 8 weeks was overwhelming, and the graded quizzes and final were difficult, with no questions from the self or review quizzes. To be fair, the instructor was helpful. He responded fast to all my messages and reviewed my exams when I said that I felt like my grades were not correct.
+            That being said, I regret taking the course with Uopeople as it lowered my GPA. I should have transferred from somewhere else.
+            If you can take this course on Sophia or anywhere else, I suggest you do so.
+
+    [Privat3Ice]: Agreed. The workload for any of the math courses is heavy as well. Do not take math with other heavy workload courses. My main gripe with the MATH1201 final was that we were assigned no reading, did no problems, and the course did not cover half-angle formulas, yet there was a half-angle problem on the final.

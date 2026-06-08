@@ -1,0 +1,234 @@
+SOURCE: https://catalog.uopeople.edu/ug_term1_item/computer-science/courses-in-computer-science
+
+Courses in Computer Science
+
+Introduction to Computer Science
+This course is designed to provide students with a foundational understanding of key computer science
+principles such as an exploration of diverse topics including number systems, logic gates, operating systems,
+computer networks, security, programming fundamentals, and different aspects of the field of computer
+science. With a structured approach and a balanced blend of theory and practical insights, this course
+endeavors to lay robust groundwork for aspiring computer scientists, fostering their proficiency and insight
+across this dynamic discipline.
+Course Code: CS 1111
+Prerequisites: None
+Credits: 3
+
+Programming Fundamentals
+This course covers the basics of computer programming and provides a foundation for further learning
+in this area. No previous computer programming knowledge is required to finish this course. The
+course uses the Python programming language which is very simple and straightforward. The course
+also covers abstract concepts which can be applied to almost any programming language, and students
+are encouraged to pay attention to these, since the way of thinking like a programmer is the most
+valuable lesson they will learn. (Students with formal training in the Python language may petition to
+waive this requirement.)
+Course Code: CS 1101
+Prerequisites: None
+Credits: 3
+
+Programming 1
+This introductory course teaches the fundamental concepts of programming languages by use of the
+popular Java language. The topics cover fundamental principles of programming, including data types,
+program control and decisions, loops, string manipulations, procedures, arrays, software testing, and
+debugging.
+Course Code: CS 1102
+Prerequisites: CS 1101
+Credits: 3
+
+Programming 2
+This course builds on the Introduction to Programming 1 course and teaches a more highly developed
+Java programming language with features beyond the basic concepts covered in the first programming
+course. A large part of the course will be devoted to more advanced building blocks such as recursion,
+linked data structures, and Java's Collection Framework. In addition to this, students learn about
+designing and coding complex, robust, and efficient programs, and are introduced to a professional
+programming tool: the Eclipse Integrated Development Environment.
+Course Code: CS 1103
+Prerequisites: CS 1102
+Credits: 3
+
+Digital Electronics & Computer Architecture
+This comprehensive course covers digital electronics, logic design, computer arithmetic, memory systems,
+programmable logic devices, and computer architecture. Students will be able to explain the principles of
+digital circuits and logic. We will use an online hardware simulator to actually “build” a computer and develop
+an assembler from the ground using concepts we will learn in class. Topics include number systems, Boolean
+logic, combinational and sequential circuits, computer arithmetic, memory hierarchies, and CPU (Central
+processing unit) design. By course completion, students will be equipped to contribute to the field of digital
+design, with skills in circuit design and microprocessor understanding.
+Course Code: CS 1105
+Prerequisites: None
+Credits: 3
+
+Databases 1
+This course introduces the fundamental concepts necessary for designing, using and implementing
+database systems. We stress the fundamentals of database modeling and design, relational theory, and
+the Structured Query Language.
+Course Code: CS 2203
+Prerequisites: None
+Credits: 3
+
+Communications and Networking
+This course will introduce the basic concepts of communication networks, including the OSI model and
+different types of communication protocols, including the Internet Protocol (TCP/IP protocol). The
+course will also cover the key concepts and structures of the Internet. Throughout the course, we will
+mainly be focusing on the two most prevalent reference models of network definition, OSI and TCP/IP.
+Course Code: CS 2204
+Prerequisites: None
+Credits: 3
+
+Web Programming 1 (Proctored course)
+This course introduces students to fundamental concepts and issues surrounding software
+development for programs that operate on the web and the internet such as static and dynamic
+content, dynamically served content, web development processes, and security.
+Course Code: CS 2205
+Prerequisites : None
+Credits: 3
+
+Operating Systems 1 (Proctored course)
+This course provides an applied introduction to commercial operating systems. It is intended for
+intermediate students who have basic programming skills. Key concepts of computer systems and
+operating systems are introduced, as well as the communications and linkages associated with
+computer systems. Operating systems that are introduced include Microsoft Windows and UNIX/Linux.
+Course Code: CS 2301
+Prerequisites: CS 1103
+Credits: 3
+
+Software Engineering 1
+This course focuses on the engineering process requirements, including identification of stakeholders,
+requirements elicitation techniques such as interviews and prototyping, analysis fundamentals,
+requirements specification, and validation. Course topics will include the use of models (State-
+oriented, Function-oriented, and Object-oriented), documentation for Software Requirements
+(Informal, semi-formal, and formal representations), structural, informational, and behavioral
+requirements; non-functional requirements, and the use of requirements repositories to manage and
+track requirements through the life cycle.
+Course Code: CS 2401
+Prerequisites: None
+Credits: 3
+
+Data Structures (Proctored course)
+This course introduces the fundamental concepts of data structures and the algorithms that proceed
+from them. Although this course has a greater focus on theory than application, the assignments,
+examples, and cases introduced throughout the course help to bridge the gap between theoretical
+concepts and real-world problem solving. We will be using a software tool that will enhance our
+understanding of the operation and function of the data structures and algorithms explored
+throughout the course by visually animating examples of data structures and algorithms so that we can
+understand their operation. Key topics within this course will include recursion, fundamental data
+structures (including stacks, queues, linked lists, hash tables, tress, and graphs), and the basics of
+algorithmic analysis.
+Course Code: CS 3303
+Prerequisites: CS 1102
+Credits: 3
+
+Analysis of Algorithms
+This course builds on knowledge of elementary algorithm analysis gained in Data Structures to further
+analyze the efficiency of algorithms for sorting, searching, and selection. The course will also introduce
+algorithm design techniques.
+Course Code: CS 3304
+Prerequisites: CS 3303
+Credits: 3
+
+Web Programming 2 (Proctored course)
+This course builds on the concepts and issues discussed in Web Programming 1 surrounding software
+development for programs that operate on the web and the Internet. Existing and emerging web
+development topics to be covered include web applications, web services, enterprise web
+development, markup languages, and server-side programming.
+Course Code: CS 3305
+Prerequisites: CS 2205
+Credits: 3
+
+Databases 2 (Proctored course)
+This course will cover server database management, configuration and administration, security
+mechanisms, backup and recovery, transact SQL Programming, and an introduction to database web-
+application development.
+Course Code: CS 3306
+Prerequisites: CS 2203
+Credits: 3
+
+Operating Systems 2 (Proctored Course)
+This course builds on principles learned in Operating Systems 1 to approach complex computer
+operating system topics such as networks, parallel computing, remote procedure call, concurrency,
+transactions, shared memory, message passing, scale, naming, and security.
+Course Code: CS 3307
+Prerequisites: CS 2301
+Credits: 3
+
+Information Retrieval
+This course covers the storage and retrieval of unstructured digital information. Topics include
+automatic index construction, retrieval models, textual representations, efficiency issues, search
+engines, text classification, and multilingual retrieval.
+Course Code: CS 3308
+Prerequisites: CS 3303
+Credits: 3
+
+Systems and Application Security
+This course introduces students to various information security concepts for computer networks and
+information systems. Students will learn how to recognize cybersecurity threats, vulnerabilities of computer
+networks and information systems, and select appropriate cybersecurity models to mitigate and/or prevent
+security breaches to ensure continuous business operations.
+Course Code: CS 3340
+Prerequisites: CS 2204
+Credits: 3
+
+Big Data
+This course introduces students to the fundamental concepts of Big Data through hands-on exercises and the
+use of various tools. The course focuses on practice over theory and the fundamental concepts of Big Data,
+including components of the big data ecosystem, distributed batch processing, distributed databases, and real-
+time processing.
+Course Code: CS 3440
+Prerequisites: CS 3303
+Credits: 3
+
+Comparative Programming Languages (Proctored Course)
+This course focuses on the organization of programming languages, emphasizing language design
+concepts and semantics. This course will explore the study of language features and major
+programming paradigms, with a special emphasis on functional programming.
+Course Code: CS 4402
+Prerequisite: CS 1103
+Credits: 3
+
+Software Engineering 2
+This course addresses more advanced topics in software engineering. Topics include the study of
+project planning, techniques for data-oriented design, object-oriented design, testing and quality
+assurance, and computer-aided software engineering.
+Course Code: CS 4403
+Prerequisites: CS 2401
+Credits: 3
+
+Advanced Networking and Data Security
+This course explores the basic components and design principles of advanced broadband networks
+(wireline and wireless), exploring how they enable essential services such as mobility, and secure data
+storage, processing and transmission. This course will also introduce the student to emerging issues
+facing organizations considering implementing cloud computing services and mobility to enabling
+worker productivity. Students will also be exposed to the basic pillars of network security (IA) and
+protecting individual privacy.
+Course Code: CS 4404
+Prerequisites: CS 2204
+Credits: 3
+
+Mobile Applications
+The course explores concepts and issues surrounding information system applications to real-time
+operating systems and wireless networking systems.
+Course Code: CS 4405
+Prerequisites: CS 2205
+Credits: 3
+
+Computer Graphics
+This course explores graphics applications and systems. Topics to be covered include the basic
+structure of interactive systems, implementation of packages, distributed architectures for graphics,
+and the representation of surfaces.
+Course Code: CS 4406
+Prerequisite: CS 1103
+Credits: 3
+
+Data Mining and Machine Learning (Proctored course)
+This course presents an introduction to current concepts in machine learning, knowledge discovery,
+and data mining. Approaches to the analysis of learning algorithm performance will also be discussed
+and applied.
+Course Code: CS 4407
+Prerequisite: CS 3303
+Credits: 3
+
+Artificial Intelligence
+This course will cover current concepts and techniques in artificial intelligence, including “reasoning”,
+problem solving, and search optimization.
+Course Code: CS 4408
+Prerequisites: CS 4407
+Credits: 3

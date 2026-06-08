@@ -1,0 +1,109 @@
+SOURCE: https://www.reddit.com/r/UoPeople/comments/1jcqnyd/how_to_make_the_most_out_of_your_bachelor_in/
+
+POST TITLE: How to make the most out of your bachelor in Computer Science at UoPeople.
+
+POST BODY:
+I often see incoming students ask on this subreddit whether studying computer science at UoPeople is worth it. The consensus is that the degree is what you make of it, which is as true as it is for a degree from any university, but I don't think this is helpful advice. So I've been thinking for some time now about how to make this degree even more worth it and how to take it to the next level. Here's my two cents.
+
+Background
+
+I enrolled at UoPeople for the June 2023 term. I have earned 81 credits so far (transferred around 48 from sophia) and my current CGPA is 3.97, with A's and A+'s in all the classes I have taken at the university besides CS 2204, where I got an A-. Before that, I have been coding since 2012 as a hobby, and I've been freelancing part-time as a web dev since 2022. My goal by joining UoPeople is to eventually enroll in a masters in scientific computing, mathematical modelling, something like that, with the ultimate goal of getting a PhD in computational biology.
+
+Disclaimer
+
+Since I have been coding for so long, there are very few things I am studying now that are new to me so far, although I am excited to enroll in the AI and computer graphics classes. So the advice that I am giving here will be more of a "wishlist" that exposes you to many kinds of subfields within computer science. The more you can do the better, and depending on your circumstances, the degree alone might be enough. So pick and choose, do your best, and good luck on your journey!
+
+The meat of the advice
+
+Three words: Build, build, build. Every CS class you take, and even some non-CS ones, can give you project ideas. For some classes, you can improve upon previous projects. CS 1102 and 1103 are good examples of this, as well as some other combinations. One non-negotiable though: Learn how to use Git and Github as soon as possible. Don't wait until CS 2401.
+
+I'll share a few resources where you can find project ideas to build, but to give you some examples:
+
+- CS 1101: Learning Python opens many doors. You can very easily find resources that will help you get ahead of the course so you can start building simple scripts. One that is extremely helpful to me is to automate grouping the files I download by file type. I also highly recommend taking this opportunity to learn how to navigate documentation. The python docs are easy to go through, which isn't something that can be said about all the docs you'll have to use in your career. Might as well learn the good habits now.
+
+- CS 1102: Java is a widely-used language with a variety of use cases. If I remember correctly, this is one of the more coding-heavy courses. What I'd recommend is taking one the complicated programming assignments as a starting point for your project and probably improve it a bit over the post-term break. Don't make a GUI yet. Tip for this course: the textbook is horrible. Watch youtube tutorials. Also, go through the Oracle docs. They're very difficult to navigate and can be a headache, so it's good to get that practice in.
+
+- CS 1103: You have your program from CS 1102, now it's time to give it an interface. You have learned the tools to make a GUI during CS 1102, so do it! It doesn't have to be super pretty, it just has to be functional. The same tips from CS 1102 apply. Bonus points: this course covers a bit of socket programming. Though I will come back to this topic below, if your app idea can use socket programming, try to implement even a very basic version of it.
+
+- CS 1105: Just go through this class. Your homework will already give you enough practice as is, but once you reach Unit 8, you might want to start researching how compilers work and how you could build your own. If you really want to do additional work while taking this class, you could take this opportunity to learn C or C++ and look into the basics of embedded programming, especially if you're interested in robotics. This will come in handy for when you get to OS 1 and OS 2, and potentially computer graphics if that's a class you plan on taking.
+
+- CS 2203: Remember your Java app? It has a back-end, it has a front-end, it also uses sockets. You've also learned to use JDBC. Now design a database for your app using what you learn from this class and connect it to your program.
+
+- MATH 1280: The first non-CS class in this list. This is the perfect opportunity to brush up on your Python skills and maybe explore data analysis techniques. Learn to use Python libraries like scikit-learn, pandas, matplotlib, and numpy. There are free datasets all over the internet that you can use. Personally, since I plan on studying computational biology, I started with bioinformatics-related datasets. If you plan on following a similar route, depending on your background you could start reading papers from your field and see if you can implement their models.
+
+- CS 2204: Good luck. Honestly, this is a very heavy course, so you might not want to do any additional work. If you do for some reason, you can look up lists of protocols that use TCP or UDP and build a program that implements one of them. It could be an email app, a video streaming app, anything like that. Protocols get pretty specific so you won't have to worry about ideas. This is also the opportunity for you to learn more about sockets (not really covered in the course unfortunately). For example, you could take the app you built for CS 1102/1103 and improve it that way. Or you could go the more theoretical route of re-implemeting your own TCP/IP stack (I recommend doing this in C/C++).
+
+- CS 2205: This class could be so much more than it is. I recommend starting a completely new project for this one. As you go through the course, supplement your knowledge with tutorials from freecodecamp, theodinproject, or any other source (don't skip flexbox, grids, css animations, and keyframes). Don't learn any front-end framework like React or Vue just yet. Just focus on strenghtening your web dev fundamentals. First, build a simple portfolio. Include links to the projects you have built before, even if they're incomplete for now. After that, pick some web pages. Build their front-end with HTML and CSS. Build interactivity with Javascript. Additionally, for one of them, build a minimal backend API using Javascript with NodeJS and Express or Python with Django or Flask. You could also use PHP or Java with Spring Boot for this. Create a database that you will connect through the API. That should be your focus during this course, the rest will come during CS 3305. Note that the project for which you have built the back-end should be included in your portfolio. This could be as simple as a blog with user authentication.
+
+- CS 2301: This course is the perfect opportunity to explore kernel programming, shell programming, things like that. C, C++, or assembly (which you have been introduced to briefly in CS 1105). Maybe Rust if you're feeling fancy. You could even start writing your own small operating system. Don't expect this to take only one term though, you'll also need CS 3307 (for this reason, I won't treat CS 3307 separately. Just take this project and improve it).
+
+- CS 2401: Take your project from CS 2205 and implement the testing and QA techniques you will learn in this course. Build a CI/CD pipeline using Jenkins or Github Actions. Host the whole thing on AWS, GCP, or Azure (I recommend AWS). Make a dashboard for metrics and configure some alarms, thresholds, and logs. Build this entirely in code (important). I'll share a few resources about this specifically.
+
+- CS 3303 and CS 3304 (if you're taking it. I highly recommend): This is a bit different. Instead of doing projects, this is when you start grinding LeetCode-style questions. A lot of technical questions revolve around those, so this is when you preparing for those. Leetcode, Neetcode, Codechef, HackerRank. You could even start looking into competitive programming.
+
+- CS 3305: For this project, take your backend API that you built for CS 2205. Now, you are going to build a completely new front-end using HTML, CSS, and a Javascript framework, ideally React, Vue, or Angular. This is also your opportunity to learn about server-side rendering frameworks like NextJS, static-site generators like Gatsby, CSS pre-processors like SASS and SCSS, and CSS naming conventions like BEM CSS. You might have guessed it, CS 2205 was for your fundamentals and back-end knowledge, this is for your front-end skills. Although, for extra points, you could learn about best security practices for web apps, especially for user authentication.
+
+- CS 3306: Take your web app from CS 3305 and refactor the database using what you learn in this course. For better practice, populate your original database with mock data, build the new database and learn how to migrate the data from the old one to the new one.
+
+- CS 4402: Recall that in CS 1105 you have learned a little bit about the compilation process. So how about building your own compiler? This is on my projects-to-do list, so I can't offer much advice except for the links I have. I'm going in blind on this one.
+
+- CS 4407: Back in MATH 1280, I recommended you learn the scikit-learn, pandas, matplotlib, and numpy python libraries. This course is why. You now have good enough fundamentals in statistics to learn PyTorch and apply what you are learning in both classes to any dataset you want. Additionally, I find the best way to learn more about machine learning, deep learning, etc, is to re-implement preexisting papers. That way, you're sure that project is actually interesting enough to be published.
+
+- CS 4408: The same advice as CS 4407 applies here.
+
+Final words
+
+That pretty much covers the whole major, minus some classes that I either am not interested in taking or I haven't thought about projects ideas for yet (computer graphics, I'm looking at you). Keep in mind that this should come as a supplement to your studies. It's not meant to replace it. You can work on your projects during the term or during the break, but it shouldn't come at the expense of your grades. Keep coding even during terms where you don't have a CS class. If you're working on a project and you realize you don't like it, just drop it. That's okay. At least you tried it, that's the important part. If you stop a project, pick up a project you already completed and enjoyed and improve it, or build a similar project. It's all up to you and your preferences.
+
+For now, I will leave you with these links:
+
+- To find projects to build:
+https://github.com/codecrafters-io/build-your-own-x
+https://github.com/practical-tutorials/project-based-learning
+
+- Everything web dev:
+https://www.youtube.com/playlist?list=PLWKjhJtqVAbmMuZ3saqRIBimAKIMYkt0E
+https://www.youtube.com/playlist?list=PLWKjhJtqVAbn21gs5UnLhCQ82f923WCgM
+
+- DevOps, cloud, and everything software engineering:
+https://cloudresumechallenge.dev/docs/the-challenge/aws/
+
+- AI/ML:
+https://ai-cases.com
+https://paperswithcode.com
+https://www.reddit.com/r/MachineLearning/comments/8vmuet/d_what_deep_learning_papers_should_i_implement_to/
+
+- Free programming books:
+https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-subjects.md
+
+Thanks for reading!
+
+COMMENTS:
+
+[Privat3Ice]: It is sufficient to merely dig deeply into whatever topic the class is doing for the week. Yes, you can always do projects, and you should learn git and github, BUT your first job is to be a good student and learn what the class is teaching.
+
+    [Xilkies]: I completely agree, grades should come first. This is just "extracurricular"
+
+        [Privat3Ice]: You can get a lot out of the classes just by doing the work and doing it really well. Yes, there's LOTS you can explore at the edges and outside, but at some point, it can get overwhelming when you feel that it's required. First thing's first, then fill in some of the interesting corners.
+
+[Complete-Acadia-2140]: With no programing background. Idk if I can make it.
+
+    [Xilkies]: As long as you do your best, that's what matters :) Studying for your classes and working on projects is how you build this background. It doesn't come out of thin air, which means you can do it!
+
+[yuriyuri2003]: Dayum. Saving this for later. Thanks for writing!!
+
+[Decent_Earth]: Thanks for your time and caring enough to share with other people! I wish you success in your career!
+
+[FrequentLine1437]: Best of luck in your career. It is an ever diminishing field with AI coming but don’t let that stop you from your dreams. Pivot when you need to.
+
+[Stunning-Champion783]: Will AI replace programmers
+
+    [Apprehensive-Back-68]: saying this,is like calculators would replace mathematicians today
+
+        [Stunning-Champion783]: Calculators can't think or be creative like ai according to ai CEOs
+
+[chungus_wungus]: My issue is that I am trying to complete my AA for CS and that not having in person classes is really detrimental so far in my learning. Like its nice to learn at home but I feel like its too easy to get an A while not having learnt anything. Will save this guide for later. Thank you.
+
+[deleted_user]: Thank you.
+
+[Latter_Ad7658]: Godsend. Thank you. I’m gonna reference this in my studies.

@@ -1,0 +1,106 @@
+SOURCE: https://catalog.uopeople.edu/ug_term1_item/computer-science/bachelor-of-science-in-computer-science-bs-cs
+
+BACHELOR OF SCIENCE IN COMPUTER SCIENCE (BS-CS)
+The Bachelor of Science in Computer Science (BS-CS) program provides students with in-
+depth knowledge and analytical skills associated with the design, development, testing
+and documentation of a range of operating systems; database management; and
+programming languages. With computers found in every aspect of today’s society,
+students completing the Bachelor of Science Degree are prepared for a range of options,
+including continued study in the field at the graduate level.
+Students pursuing a Bachelor of Science degree in Computer Science must complete all
+required courses in their chosen major as outlined below.
+
+Prerequisites
+Students must pass the following prerequisites before they can begin taking courses in the
+major:
+MATH 1201 College Algebra
+MATH 1280 Introduction to Statistics
+CS 1111 Introduction to Computer Science
+CS 1101 Programming Fundamentals
+CS 1102 Programming 1
+CS 1103 Programming 2
+CS 1105 Digital Electronics & Computer Architecture
+CS 2203 Databases 1
+CS 2204 Communications and Networking
+CS 2205 Web Programming 1 (proctored course)
+CS 2301 Operating Systems 1 (proctored course)
+CS 2401 Software Engineering 1
+CS 3303 Data Structures (Proctored course)
+CS 3305 Web Programming 2 (Proctored course)
+CS 3306 Databases 2 (proctored course)
+CS 3307 Operating Systems 2 (proctored course)
+CS 4402 Comparative Programming Languages (proctored course)
+CS 4407 Data Mining and Machine Learning (proctored course)
+MATH 1302 Discrete Mathematics
+MATH 1211 Calculus
+
+Electives
+CS 3304 Analysis of Algorithms
+CS 3308 Information Retrieval
+CS 3340 Systems & Applications Security
+CS 3440 Big Data
+CS 4403 Software Engineering 2
+CS 4404 Advanced Networking and Data Security
+CS 4405 Mobile Applications
+CS 4406 Computer Graphics
+CS 4408 Artificial Intelligence
+
+Other Electives: Students pursuing an Associate of Science degree may choose additional
+elective courses beyond those specified in the General Education requirements, and/or
+select introductory courses in other majors, and/or take additional courses in a student’s
+major that may not be required for the degree.
+
+Learning Pathway
+The learning pathway for your program has been curated to create the best learning
+experience for each student. For the most effective way to learn, courses need to be taken
+in the right sequence; lower-level courses prepare students with the foundational
+knowledge they need for higher level courses. This allows students to learn in order to
+better achieve the program and institutional learning outcomes .
+
+Each student’s learning pathway is customized based on the courses the student has
+already taken and the degree requirements at the time of enrollment. For this reason, your
+path may differ from another student’s path. However, here is an example of a sequence a
+student with no previous classes or transfer credits may take through the Bachelor of
+Science in Computer Science* program:
+1. UNIV 1001 or 3001 Online Education Strategies
+2. CS 1111 Introduction to Computer Science
+3. ENGL 1102 English Composition 2
+4. CS 1101 Programming Fundamentals
+5. General Education – Social and Behavior Science Course (pick one)
+6. CS 1102 Programming 1
+7. Math 1201 College Algebra
+8. CS 1103 Programming 2
+9. General Education – Value and Ethical Reasoning Course
+10. CS 1105 Digital Electronics & Computer Architecture
+11. Math 1280 Introduction to Statistics
+12. CS 2203 Databases 1
+13. CS 2204 Communications and Networking
+14. General Education – Natural Science and Technology Course (pick one)
+15. CS 2205 Web Programming 1
+16. COM 2001 – Professional Communication
+17. General Education – Humanities Course (pick one)
+18. CS 2301 Operating Systems 1
+19. General Education – Civilization Studies, Culture, and Belief Course
+20. CS 2401 Software Engineering 1
+21. General Education – Humanities Course (pick one)
+22. CS 3303 Data Structures
+23. General Education – Social and Behavior Science Course (pick one)
+24. Major Elective Course
+25. General Elective Course
+26. CS 3305 Web Programming 2
+27. MATH 1211 Calculus
+28. CS 3306 Databases 2
+29. MATH 1302 Discrete Mathematics
+30. CS 3307 Operating Systems 2
+31. Major Elective Course
+32. Major Elective Course
+33. Major Elective Course
+34. CS 4402 Comparative Programming Languages
+35. Major Elective Course
+36. Major Elective Course
+37. Major Elective Course
+38. Major Elective Course
+39. CS 4407 Data Mining and Machine Learning
+40. Major Elective Course
+
+*For the Associate Degree, courses 1-20 serve as the learning sequence.
