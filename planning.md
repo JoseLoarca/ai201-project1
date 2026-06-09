@@ -268,11 +268,15 @@ Context is assembled and passed onto the next step.
 
 
 > Updated in Milestone 5. Added a mermaid diagram that better represents the flow of the current retrieval process.
-> The most important to notice here, is that this approach is virtually a manual hybrid search.
+> The most important thing to notice here, is that this approach is virtually a manual hybrid search.
 > 
 > Why? A semantic search is always performed, but depending on the type of question, for example a question that
 > explicitly mentions a course code, metadata filtering happens to ensure we get results from the right source 
 > and with the right metadata, even if the cosine similarity is low.
+> 
+> Also, when querying results that target course codes, a manual rerank is performed before returning the Top-K results.
+> The goal of this is to bring any candidates have explicit mention of the course code, but for some reason ranked low, 
+> to the top performing the Top-K slicing.
 
 
 ```mermaid

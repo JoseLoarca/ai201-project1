@@ -231,6 +231,31 @@ def _query_collection(
     return chunks
 
 
+def _rerank_by_course_code(chunks: list[dict], course_code: str) -> list[dict]:
+    """
+    Stable rerank: chunks whose text mentions the course code float to the
+    front; the rest follow in their original (distance-sorted) order.
+
+    This is a lightweight post-retrieval fix for queries like
+    "tips for passing CS1102" where dense retrieval surfaces semantically
+    similar but course-agnostic chunks above the course-specific one.
+    """
+    # Match "CS1102", "CS 1102", "cs1102" etc.
+    pattern = re.compile(
+        r"\b" + re.escape(course_code[:2]) + r"\s*" + re.escape(course_code[2:]) + r"\b",
+        re.IGNORECASE,
+    )
+    mentioned = [c for c in chunks if pattern.search(c["text"])]
+    not_mentioned = [c for c in chunks if not pattern.search(c["text"])]
+
+    if mentioned:
+        logger.debug(
+            f"Reranked {len(mentioned)} chunk(s) mentioning {course_code} to front."
+        )
+
+    return mentioned + not_mentioned
+
+
 def retrieve(query: str) -> list[dict]:
     """
     Main retrieval entry point.
@@ -310,6 +335,24 @@ def retrieve(query: str) -> list[dict]:
             _query_collection(query_embedding, _build_where_filter(other_sources), TOP_K)
         )
 
+    # When a specific course code is requested, also pull reddit chunks whose
+    # metadata course_code matches directly. These per-course blocks (e.g. a
+    # single "- CS 1102:" bullet) may not rank highly on semantic similarity
+    # alone, but they are definitively relevant. This lookup is cheap
+    # (metadata-only filter on ChromaDB) and feeds the reranker below.
+    if course_code and "reddit" in other_sources:
+        targeted = _query_collection(
+            query_embedding,
+            {"$and": [{"source": {"$eq": "reddit"}}, {"course_code": {"$eq": course_code}}]},
+            TOP_K,
+        )
+        # Merge without duplicates (match on text content)
+        existing_texts = {c["text"] for c in all_chunks}
+        for c in targeted:
+            if c["text"] not in existing_texts:
+                all_chunks.append(c)
+                existing_texts.add(c["text"])
+
     if "uopeople_course_list" in sources:
         course_list_filter = (
             {"$and": [{"source": {"$eq": "uopeople_course_list"}}, {"course_code": {"$eq": course_code}}]}
@@ -322,4 +365,13 @@ def retrieve(query: str) -> list[dict]:
         all_chunks = _query_collection(query_embedding, None, TOP_K)
 
     all_chunks.sort(key=lambda c: c["distance"])
+
+    # --- Post-retrieval reranking: surface course-specific chunks ---
+    # Promote chunks that explicitly mention the queried course code to the
+    # front BEFORE slicing to TOP_K — otherwise a targeted chunk added via the
+    # metadata lookup above could be sorted to position 6+ by distance and then
+    # discarded before the reranker ever sees it.
+    if course_code:
+        all_chunks = _rerank_by_course_code(all_chunks, course_code)
+
     return all_chunks[:TOP_K]
