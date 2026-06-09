@@ -74,18 +74,18 @@ is to try and preserve the natural boundaries of posts and comments. Recursive c
 for posts and comments. Which means it should be able to handle long posts and short comments gracefully. For Reddit posts
 I will use a **chunk size of 256 tokens**, with an **overlap of 26 tokens**.
 
-  - #### UoPeople Catalog
-      For documents from the UoPeople catalog I will be using a hybrid approach. I have two different documents: one is a long
-      document with a list of all the CS courses, and the other one is a more descriptive document that includes information
-      about the degree, learning pathways, prerequisites, etc.
-  <br><br>
-      For the course list, I will use a **structure-based** chunking. With this approach, I will be treating each course as one 
-      chunk unit. For this approach I don't need to set a specific chunk size or overlap.
-      <br><br>
-      Now for the other document, I will use **recursive** chunking. The idea is to try to preserve units like 
-      "learning pathways" as  one chunk.  I will be using a **chunk size of 256 tokens** with an **overlap of 26 tokens**. 
-      A token size in recursive chunking is used to ensure that chunks don't exceed  this size, so in the end I might 
-      end up getting chunks of different sizes, but never greater than 256 tokens.
+- #### UoPeople Catalog
+    For documents from the UoPeople catalog I will be using a hybrid approach. I have two different documents: one is a long
+    document with a list of all the CS courses, and the other one is a more descriptive document that includes information
+    about the degree, learning pathways, prerequisites, etc.
+<br><br>
+    For the course list, I will use a **structure-based** chunking. With this approach, I will be treating each course as one 
+    chunk unit. For this approach I don't need to set a specific chunk size or overlap.
+    <br><br>
+    Now for the other document, I will use **recursive** chunking. The idea is to try to preserve units like 
+    "learning pathways" as  one chunk.  I will be using a **chunk size of 256 tokens** with an **overlap of 26 tokens**. 
+    A token size in recursive chunking is used to ensure that chunks don't exceed  this size, so in the end I might 
+    end up getting chunks of different sizes, but never greater than 256 tokens.
 
 ---
 
