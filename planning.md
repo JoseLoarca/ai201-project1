@@ -192,6 +192,13 @@ flowchart TD
 * Inject metadata into review before chunking
 * Prepare documents for chunking
 
+> Updated in Milestone 5. Reddit posts with a long body and content such as bulleted lists were producing "bad" chunks. 
+> Originally, the body post was being passed to the chunking function as a single string. This meant that bulleted lists, 
+> for example, were getting cut in the middle of the sentence, or that chunks ended up having more than 3 bullets.
+> 
+> To solve this, during the preprocessing step bulleted lists are now being split in blocks, so that now each block is 
+> being chunked independently by the recursive chunking.
+
 ### 2. Document Specific Chunking
 
 | Document                    | Chunking                               |   Chunk Size   |    Overlap     |
@@ -258,6 +265,70 @@ To accomplish this a metadata lookup has to happen before the per-professor retr
 associated to the course from the question.
 
 Context is assembled and passed onto the next step.
+
+
+> Updated in Milestone 5. Added a mermaid diagram that better represents the flow of the current retrieval process.
+> The most important to notice here, is that this approach is virtually a manual hybrid search.
+> 
+> Why? A semantic search is always performed, but depending on the type of question, for example a question that
+> explicitly mentions a course code, metadata filtering happens to ensure we get results from the right source 
+> and with the right metadata, even if the cosine similarity is low.
+
+
+```mermaid
+flowchart TD
+    %% Step 1: Understand the Query
+    A([Retrieval Flow]) --> B[Step 1: Understand the Query]
+    B --> B1[Run keyword matching on raw query]
+    B1 --> B2[Produce: sources, course_code, needs_professor_filter]
+
+    %% Step 2: Embed the Query
+    B2 --> C[Step 2: Embed the Query]
+    C --> C1[Convert query string into vector using all-MiniLM-L6-v2]
+
+    %% Routing based on intent
+    C1 --> D{needs_professor_filter is True?}
+
+    %% Step 3a: Professor Path
+    D -- Yes --> E[Step 3a: Professor Path]
+    E --> E1[Look up professors with RMP reviews for course code via metadata]
+    E1 --> E2[Loop: Run separate TOP_K similarity search per professor]
+    E2 --> E3[Merge all results and sort by distance]
+    E3 --> H[Step 4: Sort all candidates by cosine distance]
+
+    %% Step 3b: Standard Path
+    D -- No --> F[Step 3b: Standard Path]
+    
+    %% Sub-queries in parallel/sequence
+    F --> F1[Sub-query 1: Semantic search on non-course-list sources]
+    F --> F2{Is course_code present?}
+    
+    F2 -- Yes --> F3[Sub-query 2: Targeted Reddit lookup by course code]
+    F2 -- No --> F4[Skip Sub-query 2]
+    
+    F --> F5{Is uopeople_course_list requested?}
+    F5 -- Yes --> F6[Sub-query 3: Dedicated course list metadata lookup]
+    F5 -- No --> F7[Skip Sub-query 3]
+    
+    F1 --> G[Merge sub-query results and remove duplicates]
+    F3 --> G
+    F4 --> G
+    F6 --> G
+    F7 --> G
+    
+    G --> H
+
+    %% Step 4, 5, 6: Post-processing
+    H --> H1[Merge and sort all candidates ascending by distance]
+    H1 --> I{Is course_code present?}
+    
+    I -- Yes --> J[Step 5: Rerank by course code<br/>Move chunks explicitly mentioning code to front]
+    I -- No --> K[Skip Step 5]
+    
+    J --> L[Step 6: Slice to TOP_K and return]
+    K --> L
+    L --> M([Return Final Top 3 Chunks])
+```
 
 ### 5. Generation: llama-3.3-70b-versatile via Groq
 Responsibilities:

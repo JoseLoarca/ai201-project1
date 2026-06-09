@@ -151,6 +151,8 @@ def chunk_reddit_post(
     Returns:
         List of {"text": str, "metadata": dict}
     """
+    logger.debug(f"Chunking Reddit post {source_file}")
+
     chunks = []
     chunk_index = 0
 
@@ -164,7 +166,10 @@ def chunk_reddit_post(
 
         for chunk_text in raw_chunks:
             chunk_codes = list(
-                {m.group().upper() for m in re.finditer(r"CS\d{4}", chunk_text, re.IGNORECASE)}
+                {
+                    re.sub(r"\s+", "", m.group().upper())  # normalize "CS 1102" → "CS1102"
+                    for m in re.finditer(r"CS\s*\d{4}", chunk_text, re.IGNORECASE)
+                }
             )
             chunks.append({
                 "text": chunk_text,
@@ -178,6 +183,8 @@ def chunk_reddit_post(
                 },
             })
             chunk_index += 1
+
+    logger.debug(f"Reddit post chunks: {chunks}")
 
     return chunks
 

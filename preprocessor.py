@@ -7,72 +7,15 @@ Responsibilities:
 - Inject metadata into RMP review chunks before chunking
 - Parse and restructure Reddit threads into per-topic blocks for chunking
 - Prepare documents for their respective chunking strategies
-
-Ollama / Gemma 4 is kept here for use by the retrieval stage (query
-classification). Reddit preprocessing was moved to pure Python because
-the document structure is consistent enough to parse deterministically,
-and LLM round-trips were too slow for a preprocessing step.
 """
 
 import re
 from dataclasses import dataclass, field
 from typing import Optional
 
-import ollama
-from ollama import chat, ChatResponse, ResponseError
-
 from logger import get_session_logger
 
 logger = get_session_logger()
-
-OLLAMA_MODEL = "gemma4:e4b"
-
-# Context window size in tokens. Gemma 4's architecture supports up to 128k,
-# but Ollama defaults to 2048 unless explicitly set. Reddit posts with long
-# bodies require a larger window to avoid done_reason: "length" truncation.
-OLLAMA_NUM_CTX = 8192
-
-
-def _ensure_model() -> None:
-    """Pull the model if it isn't available locally. Raises RuntimeError if Ollama is not running."""
-    try:
-        local_models = [m.model for m in ollama.list().models]
-        if OLLAMA_MODEL not in local_models:
-            logger.info(f"[Ollama] Model '{OLLAMA_MODEL}' not found locally. Pulling...")
-            ollama.pull(OLLAMA_MODEL)
-            logger.info(f"[Ollama] Pull complete.")
-    except Exception as e:
-        raise RuntimeError(
-            f"Could not connect to Ollama. Make sure Ollama is installed and running "
-            f"(try: `ollama serve`). Original error: {e}"
-        ) from e
-
-
-def _call_ollama(prompt: str) -> str:
-    """Send a prompt to Gemma 4 via the official Ollama Python library."""
-    _ensure_model()
-    try:
-        response: ChatResponse = chat(
-            model=OLLAMA_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            options={"num_ctx": OLLAMA_NUM_CTX},
-        )
-
-        done_reason = getattr(response, "done_reason", None)
-        if done_reason == "length":
-            logger.warning(
-                f"Ollama stopped generating due to context length (done_reason='length'). "
-                f"Consider raising OLLAMA_NUM_CTX (currently {OLLAMA_NUM_CTX})."
-            )
-
-        return response.message.content.strip()
-    except ResponseError as e:
-        raise RuntimeError(f"Ollama returned an error: {e}") from e
-    except Exception as e:
-        raise RuntimeError(
-            f"Unexpected error while calling Ollama. Is it still running? Original error: {e}"
-        ) from e
-
 
 # ---------------------------------------------------------------------------
 # RateMyProfessor preprocessing
@@ -289,6 +232,37 @@ def _parse_reddit_raw(raw_text: str) -> dict:
     }
 
 
+def _split_body_blocks(title: str, body: str) -> list[str]:
+    """
+    Split a post body into blocks.
+
+    If the body uses a course-bullet structure (lines starting with
+    "- CS XXXX:" or "- MATH XXXX:"), each bullet becomes its own block
+    with the post title prepended. This makes each course tip a discrete
+    semantic unit — the same insight as treating each RMP review separately.
+
+    If no such structure is detected, the body is returned as one block.
+    """
+    bullet_pattern = re.compile(
+        r"^-\s*(?:CS|MATH)\s*\d{4}:", re.IGNORECASE | re.MULTILINE
+    )
+    positions = [m.start() for m in bullet_pattern.finditer(body)]
+
+    # Not a course-bullet body — keep as single block
+    if len(positions) < 2:
+        return [f'[Post: "{title}"]\n\n{body}']
+
+    # Split at each bullet boundary
+    blocks = []
+    for i, start in enumerate(positions):
+        end = positions[i + 1] if i + 1 < len(positions) else len(body)
+        bullet_text = body[start:end].strip()
+        blocks.append(f'[Post: "{title}"]\n\n{bullet_text}')
+
+    logger.debug(f"Post body split into {len(blocks)} course-bullet blocks.")
+    return blocks
+
+
 def preprocess_reddit_file(raw_text: str) -> list[str]:
     """
     Full preprocessing pipeline for a Reddit .txt file.
@@ -316,9 +290,10 @@ def preprocess_reddit_file(raw_text: str) -> list[str]:
 
     blocks: list[str] = []
 
-    # Post body (if present) becomes its own block
+    # Post body (if present): split into per-course blocks if it uses a
+    # course bullet structure (- CS XXXX: ...), otherwise keep as one block.
     if body:
-        blocks.append(f'[Post: "{title}"]\n\n{body}')
+        blocks.extend(_split_body_blocks(title, body))
 
     # Each top-level comment + its full reply chain becomes one block
     for comment in top_level_comments:
