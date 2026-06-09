@@ -45,18 +45,46 @@ def main() -> None:
         embed_and_store(chunks)
 
     # ------------------------------------------------------------------
-    # Stage 3: Retrieval  (Milestone 4)
+    # Stage 3: Retrieval
     # ------------------------------------------------------------------
-    logger.info("=== [Stage 3] Retrieval — not yet implemented ===")
-    # from retriever import build_retriever
-    # retriever = build_retriever()
+    logger.info("=== [Stage 3] Retrieval ===")
+    from retriever import retrieve
+
+    test_queries = [
+        "Is CS2204 a difficult course?",
+        "What is CS4407 about?",
+        "Has anyone ever encountered any professors that give good feedback?",
+        "tell me about professors who taught CS2204",
+        "how to unlock the barbarian king in clash of clans"
+    ]
+
+    for query in test_queries:
+        logger.info(f"{'─' * 20}")
+        logger.info(f"Query: {query}")
+        logger.info(f"{'─' * 20}")
+
+        chunks = retrieve(query)
+
+        if not chunks:
+            logger.info("No chunks retrieved.")
+            continue
+
+        for i, chunk in enumerate(chunks, 1):
+            logger.info(
+                f"[{i}] source={chunk['metadata'].get('source')} | "
+                f"file={chunk['metadata'].get('source_file')} | "
+                f"course={chunk['metadata'].get('course_code') or 'N/A'} | "
+                f"professor={chunk['metadata'].get('professor_name') or 'N/A'} | "
+                f"distance={chunk['distance']:.4f}"
+            )
+            logger.info(f"Text: {chunk['text']}")
 
     # ------------------------------------------------------------------
     # Stage 4: Generation & interface  (Milestone 5)
     # ------------------------------------------------------------------
     logger.info("=== [Stage 4] Generation & interface — not yet implemented ===")
     # from interface import launch
-    # launch(retriever)
+    # launch()
 
     logger.info("=== Startup complete ===")
 

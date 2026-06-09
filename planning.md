@@ -161,7 +161,7 @@ flowchart TD
     C1 & C2 & C3 & C4 --> D[all-MiniLM-L6-v2\nsentence-transformers]
     D --> E[(ChromaDB\nsource · course_code · professor_name · tags)]
 
-    F[User Query] --> G[Gemma 4 via Ollama\nQuery Classification]
+    F[User Query] --> G[Keyword Matching - Pure Python\nQuery Classification]
     G -->|JSON intent + filters| H{Professor query?}
     H -->|Yes| I[Metadata Lookup\nget_professors_for_course]
     H -->|No| E
@@ -234,26 +234,28 @@ graph TD
     Embed --> EndComplete([End: Flow Complete])
 ``` 
     
-### 4. Retrieval: Gemma 4 via Ollama + ChromaDB
+### 4. Retrieval: ChromaDB
 
-User asks question → **query understanding**.
+> Updated in Milestone 4. Originally, I planned to use Gemma 4 via Ollama to determine the question intent using LLMs.
+> I had to change this as I was told that I should avoid using different models / tools so that graders can run this project.
+> 
+> Now, I'm using pure Python to determine the question intent using keyword matching. 
 
-Gemma 4 via Ollama analyzes the question and determines intent.
+User asks a question and keyword matching is used to determine the intent of the question. Is it about a specific course?
+Course difficulty? Professors that give good feedback?
 
-Example Output:
-
-    {
-      "sources": ["reddit", "rmp"],
-      "course_code": "CS1101",
-      "needs_professor_filter": false
-    }
+This logic also determines which filters need to be used for metadata filtering. If a question is about a specific 
+course, then a course_code filter is added.
 
 Retrieval strategy: Top-K = 3 by default
 
-Metadata, sources, and filters come from Gemma 4 analysis.
+Some professor based questions are heavy on filtering, for example: Tell me about professors that taught CS1111.
+For this kind of questions, a loop is performed in order to retrieve top-k reviews BY professor instead of across all professors.
+This helps avoid retrieval bias, as there can be multiple professors that have taught that course, and if 2 out of 3 
+professors have bad reviews, good reviews will be lost simply because there are more bad ones.
 
-Professor based questions are heavy on filtering: retrieve top-k reviews BY professor instead of across all professors. To accomplish
-this a metadata lookup has to happen before the per-professor retrieval loop.
+To accomplish this a metadata lookup has to happen before the per-professor retrieval loop. This lookup returns professors
+associated to the course from the question.
 
 Context is assembled and passed onto the next step.
 
